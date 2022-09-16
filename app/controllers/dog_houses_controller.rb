@@ -6,7 +6,7 @@ class DogHousesController < ApplicationController
   end 
 
   def show
-    doghouse = DogHouse.find(params[:id])
+    doghouse = dogfind
     render json: doghouse, status: :ok
   end 
 
@@ -16,18 +16,22 @@ class DogHousesController < ApplicationController
   end 
 
   def update 
-    doghouse = DogHouse.find(params[:id])
+    doghouse = dogfind
     dogupdate = doghouse.update!(doghouseparams)
     render json: doghouse, status: :ok
   end 
 
   def destroy
-    doghouse = DogHouse.find(params[:id])
+    doghouse = dogfind
     doghouse.destroy
     head :no_content
   end 
 
   private
+  def dogfind 
+    DogHouse.find(params[:id])
+  end 
+
   def render_Dog_house_not_found
     return render json: { error: "Dog House not Found" }, status: :not_found
   end

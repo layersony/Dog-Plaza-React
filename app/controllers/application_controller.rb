@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :authorized
+  rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid 
 
   def encode_token(payload)
     JWT.encode(payload, 'my_s3cr3t')
@@ -35,4 +36,8 @@ class ApplicationController < ActionController::API
     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
   end
 
+  private
+  def render_record_invalid
+    render json: { error: ["validation errors"] }, status: :unprocessable_entity
+  end 
 end
