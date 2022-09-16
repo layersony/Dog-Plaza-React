@@ -7,6 +7,7 @@ class CreateDogHouses < ActiveRecord::Migration[7.0]
       t.string :location
       t.integer :price
       t.string :amedities
+      t.integer :dogrooms
 
       t.timestamps
     end
