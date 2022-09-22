@@ -6,13 +6,22 @@ class UsersController < ApplicationController
   end 
 
   def create
-    @user = User.create(user_params)
-    if @user.valid?
-      @token = encode_token({ user_id: @user.id })
-      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
-    else
-      render json: { error: 'failed to create user' }, status: :unprocessable_entity
-    end
+    @currentuser = User.find_by(email: user_params[:email])
+    if @currentuser
+      render json: { error: 'User Already Exists' }, status: :conflict
+    else 
+      @user = User.create(user_params)
+      if @user.valid?
+        @token = encode_token({ user_id: @user.id })
+        render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+      else
+        render json: { error: 'failed to create user' }, status: :unprocessable_entity
+      end
+    end 
+  end
+
+  def show
+    render json: @current_user
   end
 
   private
