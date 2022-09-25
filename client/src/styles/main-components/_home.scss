@@ -1,0 +1,23 @@
+.dogHome{
+  min-height: 100vh;
+  .headerSection{
+    height: 50vh;
+    .headerLeft{
+      background-color: #6C63FF;
+      border-radius: 60% 40% 70% 30% / 43% 77% 23% 57%;
+      h1{
+        font-size: 2.5em;
+        font-weight: 700;
+      }
+      p{
+        font-size: 15px;
+      }
+    }
+    img{
+      max-width: 450px;
+    }
+  }
+  .doghouselist{
+    background-color: #6b63ff2f;
+  }
+}

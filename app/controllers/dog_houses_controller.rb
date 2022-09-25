@@ -1,5 +1,6 @@
 class DogHousesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_Dog_house_not_found
+  skip_before_action :authorized, only: [:index]
 
   def index 
     render json: DogHouse.all(), status: :ok

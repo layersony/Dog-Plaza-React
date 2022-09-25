@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import { Navbar, Nav } from 'react-bootstrap'
 
 function NavigationBar() {
+
   return (
     <Navbar expand="lg" variant="light" id='mainNav'>
       <Container>
@@ -11,6 +12,7 @@ function NavigationBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/">Home</Nav.Link>
+            
             <Nav.Link href="/signin">Login</Nav.Link>
             <Nav.Link href="/signup">Register</Nav.Link>
           </Nav>

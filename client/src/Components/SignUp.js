@@ -7,38 +7,25 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-// import { useNavigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
+import AuthService from "../services/auth.service";
 
 function SignUp(){
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const MySwal = withReactContent(Swal)
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
   const onSubmit = data => {
-    fetch("/users",{
-      method:"POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data)
-    }).then(r =>{
-      if (r.ok) {
-        r.json().then((user) => {
-          localStorage.setItem('jwt', user.jwt)
-          // navigate('/')
-        });
-      } else {
-        r.json().then((err) => {
+    AuthService.register(data.fullname, data.email, data.phonenumber, data.password).then(res => {
+      navigate('/')
+    }, error => {
           MySwal.fire({
             icon: 'error',
-            title: err.error,
+            title: error,
             text: 'Go to Login'
           })
-        });
-      }
     })
   }
 

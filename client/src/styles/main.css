@@ -1,0 +1,63 @@
+.dogHome {
+  min-height: 100vh;
+}
+
+.dogHome .headerSection {
+  height: 50vh;
+}
+
+.dogHome .headerSection .headerLeft {
+  background-color: #6C63FF;
+  border-radius: 60% 40% 70% 30% / 43% 77% 23% 57%;
+}
+
+.dogHome .headerSection .headerLeft h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.dogHome .headerSection .headerLeft p {
+  font-size: 15px;
+}
+
+.dogHome .headerSection img {
+  max-width: 450px;
+}
+
+.dogHome .doghouselist {
+  background-color: #6b63ff2f;
+}
+
+.dghomeLanding .dgCarddt {
+  height: 160px;
+  width: 450px;
+  max-width: 450px;
+  padding-right: 100px;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+          box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  border-radius: 0 10px 10px 0;
+  background-color: #ffffff;
+}
+
+.dghomeLanding img {
+  max-width: 200px;
+  height: 180px;
+  max-height: 180px;
+  border-radius: 5px;
+}
+
+.dghomeLanding .dogdata a {
+  color: #6C63FF;
+  font-weight: 600;
+}
+
+.dghouseimg {
+  height: 50vh;
+}
+
+.dghouseimg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=main.css.map */
