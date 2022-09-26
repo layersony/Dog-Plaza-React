@@ -47,7 +47,7 @@ function Home() {
           <Col>
             {doghouselist}
           </Col>
-          <Col className="bg-danger">
+          <Col className="">
             
           </Col>
         </Row>

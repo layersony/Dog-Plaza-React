@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import DogHouseReview from './DogHouseReview'
+
 function DogDetail() {
   const { id } = useParams()
   const [dogdt, setdogdt] = useState({})
@@ -19,7 +21,7 @@ function DogDetail() {
     }
 
     fetchdata().catch(console.error)
-  },[])
+  },[id])
 
 
   return (
@@ -55,7 +57,7 @@ function DogDetail() {
       <hr />
       <div>
         <h3>Reviews</h3>
-
+        <DogHouseReview dgHouseId={dogdt.id} />
       </div>
     </Container>
   )

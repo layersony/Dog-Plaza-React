@@ -33,9 +33,6 @@ class DogHousesController < ApplicationController
     DogHouse.find(params[:id])
   end 
 
-  def render_Dog_house_not_found
-    return render json: { error: "Dog House not Found" }, status: :not_found
-  end
 
   def doghouseparams
     params.permit(:id, :imageurl, :name, :description, :location, :price, :amedities, :dogrooms)

@@ -1,4 +1,11 @@
 class ReviewsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :render_Dog_house_not_found
+
+  def getreviews
+    doghouses = DogHouse.find(params[:id]) 
+    reviews = doghouses.reviews
+    render json: reviews.to_json
+  end
 
   def create
     dog_house = DogHouse.find(params[:dog_house_id])
@@ -22,9 +29,9 @@ class ReviewsController < ApplicationController
     params.permit(:review, :user_id, :dog_house_id)
   end
 
-  # def findDog
-  #   DogHouse.find(params[:dog_house_id])
 
-  # end
+  def render_Dog_house_not_found
+    return render json: { error: "Dog House not Found" }, status: :not_found
+  end
 
 end
