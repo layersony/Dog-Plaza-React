@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   def getreviews
     doghouses = DogHouse.find(params[:id]) 
     reviews = doghouses.reviews
-    render json: reviews.to_json
+    render json: reviews.to_json(only: [:id, :review, :dog_house_id, :created_at], include: {user: {only: [:fullname]}})
   end
 
   def create
