@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Map from './Map'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal';
-
+import CreateReview from "./CreateReview"
 import DogHouseReview from './DogHouseReview'
 import UserService from "../services/user.service";
 
@@ -45,10 +45,10 @@ function DogDetail() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          
+          <CreateReview doghousedt={dogdt.id} />
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button variant="outline-secondary" size="sm" onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     );

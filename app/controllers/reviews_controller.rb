@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   def getreviews
     doghouses = DogHouse.find(params[:id]) 
     reviews = doghouses.reviews
-    render json: reviews.to_json(only: [:id, :review, :dog_house_id, :created_at], include: {user: {only: [:fullname]}})
+    render json: reviews.to_json(only: [:id, :review, :dog_house_id, :rating, :created_at], include: {user: {only: [:fullname, :id]}})
   end
 
   def create
@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    puts params
     review = Review.find(params[:id])
     review.destroy
     head :no_content
@@ -26,7 +27,7 @@ class ReviewsController < ApplicationController
   private 
 
   def review_params
-    params.permit(:review, :user_id, :dog_house_id)
+    params.permit(:review, :user_id, :dog_house_id, :rating)
   end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_16_015037) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_29_102256) do
   create_table "dog_houses", force: :cascade do |t|
     t.string "imageurl"
     t.string "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_015037) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
     t.index ["dog_house_id"], name: "index_reviews_on_dog_house_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
