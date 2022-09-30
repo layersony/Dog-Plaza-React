@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { Link } from 'react-router-dom';
 
 import AuthService from "../services/auth.service";
 
@@ -31,11 +32,14 @@ function SignIn() {
 
   return (
     <>
-      <Container>
-        <Row>
-          <Col></Col>
-          <Col>
-            <Form onSubmit={handleSubmit(onSubmit)}>
+      <Container className="d-flex justify-content-center align-items-center accountSignup">
+        <Row className="w-100">
+          <Col sm={12} md={6}>
+            <img src={require('../images/login.png')} alt="headerSecton" />
+          </Col>
+          <Col sm={12} md={6} className="d-flex justify-content-center align-items-center flex-column">
+            <h2 className="">Log In</h2>
+            <Form className="w-100" onSubmit={handleSubmit(onSubmit)}>
 
               <Form.Group className="mb-3" controlId="formGroupemail">
                 <Form.Label>Email</Form.Label>
@@ -49,14 +53,15 @@ function SignIn() {
                 <sub className="text-danger">{errors.password?.type === 'required' && "Password is required"}</sub>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                {isLoading ? "Loading..." : "Login"}
-              </Button>
-
+              <div className="d-flex justify-content-center align-items-center flex-column">
+                <Button variant="primary" type="submit">
+                  {isLoading ? "Loading..." : "Login"}
+                </Button>
+                <sub className='mt-3'>Don't have a Account Yet? <Link to="/signup" variant="body2">Sign up here</Link></sub>
+              </div>
             </Form>
 
           </Col>
-          <Col></Col>
         </Row>
       </Container>
     </>

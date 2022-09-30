@@ -4,6 +4,8 @@ import authHeader from "../services/auth-header"
 import Container from "react-bootstrap/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import AuthService from "../services/auth.service";
+import SignIn from "./SignIn";
 
 
 function Home() {
@@ -24,6 +26,10 @@ function Home() {
   const doghouselist = doghouses.map(item => {
     return <Doghouse key={item.id} doghousedt={item} />
   })
+
+  const token = AuthService.getCurrentUser()
+
+  if (!token) return <SignIn />;
 
   return (
     <section className="dogHome">

@@ -28,6 +28,50 @@
   background-color: #6b63ff2f;
 }
 
+#mainNav {
+  background-color: #6C63FF;
+  height: 10vh;
+  max-height: 10vh;
+  color: #fff;
+}
+
+#mainNav .brand {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+  -webkit-transform: rotate3d();
+          transform: rotate3d();
+}
+
+#mainNav .brand sub, #mainNav .brand sup {
+  font-weight: 300;
+}
+
+#mainNav .brand svg {
+  color: inherit;
+  height: 30px;
+  font-weight: 200;
+}
+
+#mainNav .brand span {
+  color: #fff;
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+
+#mainNav .nav-link {
+  color: #fff;
+  font-size: 20px;
+}
+
+.accountSignup {
+  height: 80vh;
+}
+
+.accountSignup img {
+  width: 100%;
+}
+
 .dghomeLanding .dgCarddt {
   height: 160px;
   width: 450px;

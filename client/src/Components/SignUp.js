@@ -9,6 +9,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useNavigate } from 'react-router-dom'
 import AuthService from "../services/auth.service";
+import { Link } from 'react-router-dom';
 
 function SignUp(){
 
@@ -20,6 +21,7 @@ function SignUp(){
   const onSubmit = data => {
     AuthService.register(data.fullname, data.email, data.phonenumber, data.password).then(res => {
       navigate('/')
+      window.location.reload();
     }, error => {
           MySwal.fire({
             icon: 'error',
@@ -31,13 +33,16 @@ function SignUp(){
 
   return (
     <>
-      <Container>
-        <Row>
-          <Col></Col>
-          <Col>
+      <Container className="d-flex justify-content-center align-items-center accountSignup">
+        <Row className="w-100">
+          <Col sm={12} md={6}>
+            <img src={require('../images/join.png')} alt="headerSecton" />
+          </Col>
+          <Col sm={12} md={6} className="d-flex justify-content-center align-items-center flex-column">
+            <h2 className="">Sign Up</h2>
             {errors.exampleRequired && <span>This field is required</span>}
 
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form className="w-100" onSubmit={handleSubmit(onSubmit)}>
               <Form.Group className="mb-3" controlId="formGroupfullname">
                 <Form.Label>Full Name</Form.Label>
                 <Form.Control type="text" placeholder="John Doe" {...register("fullname", { required: true })} />
@@ -62,14 +67,15 @@ function SignUp(){
                 <sub className="text-danger">{errors.password?.type === 'required' && "Password is required"}</sub>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
+
+              <div className="d-flex justify-content-center align-items-center flex-column">
+                <Button variant="primary" type="submit">Register</Button>
+                <sub className='mt-3'>Have a Account Yet? <Link to="/signin" variant="body2">Login here</Link></sub>
+              </div>
 
             </Form>
 
           </Col>
-          <Col></Col>
         </Row>
       </Container>
     </>

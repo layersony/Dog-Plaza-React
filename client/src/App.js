@@ -8,14 +8,11 @@ import SignIn from "./Components/SignIn";
 import NotFound from "./Components/NotFound";
 import DogDetail from "./Components/DogDetail"
 
-import AuthService from "./services/auth.service";
 
 import './styles/main.css'
 
 function App() {
-  const token = AuthService.getCurrentUser()
 
-  if (!token) return <SignIn />;
 
   return (
     <>
