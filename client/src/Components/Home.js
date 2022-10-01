@@ -32,12 +32,12 @@ function Home() {
   if (!token) return <SignIn />;
 
   return (
-    <section className="dogHome">
+    <section className="dogHome mt-2">
       <div className="headerSection d-flex justify-content-center align-items-center">
         <Container>
           <Row className="">
-            <Col className='headerLeft d-flex justify-content-center align-items-center flex-column'>
-              <h1>Dog Shelter</h1>
+            <Col className='headerLeft d-flex justify-content-center align-items-start flex-column'>
+              <h1>Dog <span>Shelter</span></h1>
               <p>Best Place for you Dog to Stay when you on Vacation</p>
             </Col>
             <Col className="d-flex justify-content-end">

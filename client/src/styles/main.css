@@ -7,17 +7,18 @@
 }
 
 .dogHome .headerSection .headerLeft {
-  background-color: #6C63FF;
+  background-color: #6b63ff38;
   border-radius: 60% 40% 70% 30% / 43% 77% 23% 57%;
+  color: #000;
 }
 
 .dogHome .headerSection .headerLeft h1 {
-  font-size: 2.5em;
-  font-weight: 700;
+  font-size: 4em;
+  font-weight: 300;
 }
 
 .dogHome .headerSection .headerLeft p {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .dogHome .headerSection img {
