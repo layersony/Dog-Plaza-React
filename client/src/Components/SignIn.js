@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 import AuthService from "../services/auth.service";
 
@@ -15,10 +16,12 @@ function SignIn() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const MySwal = withReactContent(Swal)
+  const navigate = useNavigate();
 
   const onSubmit = data => {
     setIsLoading(true);
     AuthService.login(data.email, data.password).then(()=>{
+      navigate('/')
       window.location.reload();
       setIsLoading(false);
     }, error => {

@@ -3,13 +3,16 @@ import Container from 'react-bootstrap/Container'
 import { Navbar, Nav } from 'react-bootstrap'
 import AuthService from '../services/auth.service';
 import { HouseHeart } from 'react-bootstrap-icons';
+import { useNavigate } from 'react-router-dom'
 
 function NavigationBar() {
 
   const currentuser = AuthService.getCurrentUser()
+  const navigate = useNavigate();
 
   function handleLogOut(){
     AuthService.logout()
+    navigate('/')
     window.location.reload();
   }
 
@@ -22,7 +25,7 @@ function NavigationBar() {
           <Nav className="ms-auto">
             <Nav.Link href="/">Home</Nav.Link>
             {currentuser ? <>
-              <Nav.Link href="#">Account</Nav.Link>
+              <Nav.Link href="/account">Account</Nav.Link>
               <Nav.Link href="#" onClick={handleLogOut}>Log Out</Nav.Link>
             </>: 
             <>
