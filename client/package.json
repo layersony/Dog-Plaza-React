@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "homepage": "https://dogplaza254.cybpact.com/",
   "dependencies": {
     "@react-google-maps/api": "^2.13.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -11,6 +11,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
     "google-map-react": "^2.2.0",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-bootstrap-icons": "^1.9.1",
@@ -45,8 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }, 
-  "devServer": {
-      "allowedHosts": ["*"]
   }
 }
