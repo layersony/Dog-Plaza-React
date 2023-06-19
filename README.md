@@ -25,3 +25,4 @@ Things you may want to cover:
 
 * this is a trial
 * this is trial 2
+* this is trial 3
